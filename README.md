@@ -14,3 +14,7 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 https://www.0xdev.co/how-to-connect-to-a-solana-wallet-to-your-react-app/
 
 https://siws.web3auth.io/implementfrontend-react
+
+## Use walletConnectModal
+
+### `npm install @web3modal/ethers5 ethers@5.7.2`
