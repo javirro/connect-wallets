@@ -1,25 +1,42 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { useMemo } from "react";
+import "@solana/wallet-adapter-react-ui/styles.css";
+import { clusterApiUrl } from "@solana/web3.js";
+import { WalletAdapterNetwork } from "@solana/wallet-adapter-base";
+import {
+  LedgerWalletAdapter,
+  PhantomWalletAdapter,
+} from "@solana/wallet-adapter-wallets";
+import {
+  ConnectionProvider,
+  WalletProvider,
+} from "@solana/wallet-adapter-react";
+import { WalletModalProvider } from "@solana/wallet-adapter-react-ui";
+
+import "./App.css";
+
+// import the styles
+require("@solana/wallet-adapter-react-ui/styles.css");
 
 function App() {
+  // you can use Mainnet, Devnet or Testnet here
+  const solNetwork = WalletAdapterNetwork.Mainnet;
+  const endpoint = useMemo(() => clusterApiUrl(solNetwork), [solNetwork]);
+  // initialise all the wallets you want to use
+  const wallets = useMemo(
+    () => [new PhantomWalletAdapter(), new LedgerWalletAdapter()],
+    []
+  );
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ConnectionProvider endpoint={endpoint}>
+      <WalletProvider wallets={wallets}>
+        <WalletModalProvider>
+          <div className="App">
+            <strong>HELLO</strong>
+          </div>
+        </WalletModalProvider>
+      </WalletProvider>
+    </ConnectionProvider>
   );
 }
 
