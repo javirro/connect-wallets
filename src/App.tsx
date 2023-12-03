@@ -7,6 +7,7 @@ import "./App.css"
 import Home from "./routes/Home"
 import Solana from "./routes/Solana"
 import EVM from "./routes/EVM"
+import Navbar from "./Components/Navbar/Navbar"
 
 const chains = [process.env.REACT_APP_IS_PRODUCTION === "true" ? polygon : polygonMumbai]
 const projectId = process.env.REACT_APP_PROJECT_ID as string
@@ -24,6 +25,7 @@ function App() {
     <div className="App">
       <WagmiConfig config={wagmiConfig}>
         <BrowserRouter>
+          <Navbar />
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/solana" element={<Solana />} />
