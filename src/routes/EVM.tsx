@@ -1,8 +1,9 @@
 import ConnectEVMWallet from "../Components/EVMWallet/ConnectEVMWallet"
+import "./EVM.css"
 
 const EVM = () => {
   return (
-    <main>
+    <main className="evm-page-container">
       <ConnectEVMWallet />
     </main>
   )

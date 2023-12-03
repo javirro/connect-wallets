@@ -1,6 +1,6 @@
 import { useAccount, useNetwork, useSwitchNetwork } from "wagmi"
 import { useWeb3Modal } from "@web3modal/react"
-
+import "./ConnectEVMWallet.css"
 const ConnectEVMWallet = () => {
   const { open } = useWeb3Modal()
   const { isConnected: isPolygonConnected, address: polygonAddress } = useAccount()
@@ -18,7 +18,9 @@ const ConnectEVMWallet = () => {
 
   return (
     <>
-      <button onClick={() => open()}>Open Connect Modal</button>
+      <button onClick={() => open()} className="evm-connect-btn">
+        Open Connect Modal
+      </button>
     </>
   )
 }

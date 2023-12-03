@@ -1,0 +1,9 @@
+.evm-connect-btn {
+  width: 250px;
+  padding: 10px;
+  font-size: 1.2rem;
+  background: rgb(250, 142, 142);
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
