@@ -2,6 +2,7 @@ import { WalletModalProvider } from "@solana/wallet-adapter-react-ui"
 import useSolanaConfig from "../hooks/useSolanaConfig"
 import { ConnectionProvider, WalletProvider, useWallet /*useConnection*/ } from "@solana/wallet-adapter-react"
 import ConnectionSolana from "../Components/SolanaWallet/ConnectionSolana"
+import "./routes.css"
 
 const WrappedSolana = () => {
   // Solana wallet connection
@@ -9,7 +10,7 @@ const WrappedSolana = () => {
   const solanaPublicKey = walletHook?.publicKey
   const solanaAddress = solanaPublicKey?.toBase58()
   return (
-    <main>
+    <main className="page-container">
       <ConnectionSolana />
       <span>{solanaAddress}</span>
     </main>
