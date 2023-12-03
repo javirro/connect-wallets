@@ -19,7 +19,7 @@ const ConnectEVMWallet = () => {
   return (
     <>
       <button onClick={() => open()} className="evm-connect-btn">
-        Open Connect Modal
+        Connect EVM wallet
       </button>
     </>
   )

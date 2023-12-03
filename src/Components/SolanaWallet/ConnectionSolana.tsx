@@ -4,9 +4,11 @@ import "./ConnectionSolana.css"
 const ConnectionSolana = () => {
   const { setVisible } = useWalletModal() // Default hook to open react-solana-adapter modal to connect wallet
   return (
-    <button onClick={() => setVisible(true)} className="solana-connect-btn">
-      Connect Solana wallet
-    </button>
+    <>
+      <button onClick={() => setVisible(true)} className="solana-connect-btn">
+        Connect Solana wallet
+      </button>
+    </>
   )
 }
 
